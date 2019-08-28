@@ -5,6 +5,8 @@ from PIL import ImageTk, Image, ImageFilter
 import matplotlib.pyplot as plt
 from pytesseract import *
 
+
+
 import cv2
 from matplotlib.image import imread
 import numpy as np
@@ -60,7 +62,7 @@ def Binary(self):
 def Adaptive(self):
     image = cv2.imread(filename, cv2.IMREAD_GRAYSCALE)
     # image type is <class 'numpy.ndarray'>
-    img_result = cv2.adaptiveThreshold(image, AScale.get(), cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 11, 11)
+    img_result = cv2.adaptiveThreshold(image, AScale.get(), cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 11, 5)
     # 맨 뒤에 파라미터 수정 필요.
 
     # Convert the Image object into a TkPhoto object
